@@ -1,4 +1,5 @@
-!30% suoritetut alemmat ja ylemmät korkeakoulututkinnot -> DONE but not cleaned
+--INCLUDED IN ANALYSIS
+!30% suoritetut alemmat ja ylemmät korkeakoulututkinnot -> DONE
   19% ylemmät -> DONE
   11% alemmat -> DONE
   kertoimet
@@ -11,7 +12,7 @@
 
 !3% opiskelijapalaute -> DONE
 
-!8% suoritetut tohtorintutkinnot -> DONE but not cleaned
+!8% suoritetut tohtorintutkinnot -> DONE
 
 !14% julkaisut -> DONE
   JUFO-painotus -> DONE
@@ -19,7 +20,7 @@
 
 
 
-
+--NOT INCLUDED IN ANALYSIS
 
 12% kilpailtu tutkimusrahoitus
   kv tutkimusrahoitus 6%
