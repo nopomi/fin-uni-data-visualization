@@ -13,57 +13,67 @@ external_stylesheets = ['https://cdn.rawgit.com/plotly/dash-app-stylesheets/2d26
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-degrees = pd.read_csv('data/degrees_data.csv')
+degrees = pd.read_csv('data/degrees_data_2.csv')
 student_feedback = pd.read_csv('data/opiskelijapalaute_data.csv')
+student_feedback = student_feedback[['väittämä', 'yliopisto', 'tilastovuosi', 'Keskiarvo (rahoitusmalli)']]
+student_feedback = student_feedback.rename(columns={'Keskiarvo (rahoitusmalli)':'Keskiarvo', 'väittämä':'metric'})
+student_feedback['metric'] = student_feedback['metric'].map({
+    'Voin hyvin yliopistossani.':'Well-being & Satisfaction',
+    'Olen tyytyväinen omaan opiskeluuni.':'Well-being & Satisfaction',
+    'Minun on ollut helppoa löytää opintoihini liittyvää tietoa ja tukea.':'Study guidance',
+    'Ongelmatilanteissa olen tarvittaessa löytänyt henkilön, jolta olen voinut pyytää neuvoa.':'Study guidance',
+    'Tarjolla on ollut riittävästi ohjausta opintojen suunnitteluun.':'Study guidance',
+    'Olen ollut  tyytyväinen käytettyihin opetusmenetelmiin.':'Teaching',
+    'Opetus on ollut  mielestäni pääosin laadukasta.':'Teaching',
+    'Olen ollut tyytyväinen vuorovaikutukseeni opetushenkilökunnan kanssa.':'Teacher interaction',
+    'Opettajilta saamani palaute on auttanut minua opinnoissani.':'Teacher interaction',
+    'Olen ollut tyytyväinen opinto-ohjelmani tarjoamiin vaikutus- ja osallistumismahdollisuuksiin (esim. opetussuunnitteluun osallistuminen ja palautteen antamisen mahdollisuudet).':'Teacher interaction',
+    'Koulutukseni on vastannut  sille asetettuja tavoitteita.':'Degree satisfaction',
+    'Koulutuksen myötä kehittynyt osaamiseni vastaa odotuksiani.':'Degree satisfaction',
+    'Tarjolla on ollut riittävästi ohjausta kandidaatin tutkielman laatimiseen/opinnäytteen tekemiseen.':'Thesis guidance'
+})
+student_feedback = student_feedback.groupby(['yliopisto','metric','tilastovuosi'], as_index=False).mean()
 employment = pd.read_csv('data/tyollistyminen_data.csv')
 publications = pd.read_csv('data/jufo_data.csv')
+publications['JUFO-taso'] = publications['JUFO-taso'].astype(str)
 career_feedback = pd.read_csv('data/uraseuranta_data.csv')
+career_feedback = career_feedback[['väittämä','yliopisto', 'tilastovuosi', 'Keskiarvo (maisterit)']]
+career_feedback = career_feedback.rename(columns={'väittämä':'metric', 'Keskiarvo (maisterit)':'Keskiarvo'})
+career_feedback['metric'] = career_feedback['metric'].map({
+    'a) Pystyn hyödyntämään yliopistossa oppimiani tietoja ja taitoja nykyisessä työssäni hyvin.':'Career benefit',
+    'd)  Koulutus antoi riittävät valmiudet työelämään.':'Career benefit',
+    '4.  Miten tyytyväinen olet kokonaisuudessaan vuonna 2012 suorittamaasi tutkintoon työurasi kannalta?':'Career benefit',
+    '3)  analyyttiset, systemaattisen ajattelun taidot':'Learning & thinking skills',
+    '21)  kyky oppia ja omaksua uutta':'Learning & thinking skills',
+    '4)  tiedonhankintataidot':'Learning & thinking skills',
+    'b) Työni vastaa vaativuustasoltaan hyvin yliopistollista koulutustani.':'Job challenge',
+    '23)  tieteiden- tai taiteidenvälisyys/moniammatillisissa ryhmissä toimiminen':'Interdisciplinary capability',
+    '26)  itseohjautuvuus/oma-aloitteisuus':'Self-directedness',
+    '27)  yrittäjyystaidot':'Entrepreneurship'
+})
+career_feedback = career_feedback.groupby(['yliopisto', 'metric', 'tilastovuosi'], as_index=False).mean()
 
-#temporary filters and dummy data for prototyping
-demo_unis = ['Aalto-yliopisto', 'Helsingin yliopisto', 'Itä-Suomen yliopisto']
-degrees = degrees[degrees.yliopisto.isin(demo_unis)]
-publications = publications[publications.yliopisto.isin(demo_unis)]
-publications = publications[publications['tilastovuosi']==2015]
-publications = publications[['yliopisto', 'JUFO-taso', 'lkm']]
-student_feedback = pd.DataFrame(dict(
-    r=[3.5, 4, 4.2, 4.0, 4.1],
-    theta=['Feedback','Teaching','Guidance',
-           'Communication', 'Wellbeing']))
+unis = degrees.yliopisto.unique()
+
+#temporary data restrictions and dummy data
+student_feedback = student_feedback[student_feedback['tilastovuosi']==2019]
 employment = employment[employment['tilastovuosi'] == 2015]
 employment = employment[['yliopisto', 'Työllinen', 'Päätoiminen opiskelija', 'Työtön']]
-employment = employment[employment.yliopisto.isin(demo_unis)]
-df = pd.read_csv("https://raw.githubusercontent.com/bcdunbar/datasets/master/iris.csv")
-df = df[:3]
-fig7 = go.Figure(data=
-    go.Parcoords(
-        line = dict(color = df['species_id'],
-                   colorscale = [[0,'purple'],[0.5,'lightseagreen'],[1,'gold']]),
-        dimensions = list([
-            dict(range = [0,8],
-                constraintrange = [4,8],
-                label = 'Career satisfaction', values = df['sepal_length']),
-            dict(range = [0,8],
-                label = 'Learned skills', values = df['sepal_width']),
-            dict(range = [0,8],
-                label = 'Entrepreneurship', values = df['petal_length']),
-            dict(range = [0,8],
-                label = 'Applicability', values = df['petal_width'])
-        ])
-    )
-)
 #END OF DUMMY DATA
 
-fig = px.bar(degrees[['yliopisto', 'Alempi korkeakoulututkinto', 'Ylempi korkeakoulututkinto', 'Tohtorintutkinto']], x='yliopisto', y='Alempi korkeakoulututkinto')
-fig2 = px.line_polar(student_feedback, r='r', theta='theta')
+fig = px.bar(degrees, x='yliopisto', y='lkm', color='Tutkintotyyppi')
+fig2 = px.line_polar(student_feedback, r='Keskiarvo', theta='metric', hover_name='yliopisto', color='yliopisto', range_r=[student_feedback.Keskiarvo.min()-0.2,student_feedback.Keskiarvo.max()+0.2], line_close=True)
+fig2.update_layout(legend_orientation="h")
 fig3 = px.bar(employment[['yliopisto', 'Työllinen']], x='yliopisto', y='Työllinen')
 fig4 = px.bar(employment[['yliopisto', 'Päätoiminen opiskelija']], x='yliopisto', y='Päätoiminen opiskelija')
 fig5 = px.bar(employment[['yliopisto', 'Työtön']], x='yliopisto', y='Työtön')
 fig6 = px.bar(publications, x='yliopisto', y='lkm', color='JUFO-taso')
+fig7 = px.parallel_coordinates(career_feedback, dimensions=['metric'])
 
 server = app.server
 
 top_markdown_text = '''
-### Compare universities!
+### Compare university funding metrics
 '''
 
 app.layout = html.Div([
@@ -80,11 +90,7 @@ app.layout = html.Div([
             ),
             dcc.Dropdown(
                 id='university-selection',
-                options=[
-                    {'label':'Helsingin Yliopisto', 'value':'Helsingin Yliopisto'},
-                    {'label': 'Itä-Suomen Yliopisto', 'value':'Itä-Suomen Yliopisto'},
-                    {'label':'Aalto-Yliopisto', 'value':'Aalto-Yliopisto'}
-                ],
+                options=[{'label':x, 'value':x} for x in unis],
                 multi=True
             ),
         ],
