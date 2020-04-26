@@ -1,209 +1,209 @@
-,Unnamed: 0,Unnamed: 0.1,Unnamed: 0.1.1,yliopisto,tilastovuosi,JUFO-taso,lkm
-0,0,0,156,Aalto-yliopisto,2015,0,480
-1,1,1,157,Helsingin yliopisto,2015,0,564
-2,2,2,158,Itä-Suomen yliopisto,2015,0,180
-3,3,3,159,Jyväskylän yliopisto,2015,0,208
-4,4,4,160,Lapin yliopisto,2015,0,69
-5,5,5,161,Lappeenrannan-Lahden teknillinen yliopisto,2015,0,165
-6,6,6,162,Oulun yliopisto,2015,0,231
-7,7,7,163,Svenska handelshögskolan,2015,0,49
-8,8,8,164,Taideyliopisto,2015,0,14
-9,9,9,165,Tampereen yliopisto,2015,0,444
-10,10,10,166,Turun yliopisto,2015,0,313
-11,11,11,167,Vaasan yliopisto,2015,0,51
-12,12,12,168,Åbo Akademi,2015,0,135
-13,13,13,104,Aalto-yliopisto,2016,0,447
-14,14,14,105,Helsingin yliopisto,2016,0,567
-15,15,15,106,Itä-Suomen yliopisto,2016,0,198
-16,16,16,107,Jyväskylän yliopisto,2016,0,162
-17,17,17,108,Lapin yliopisto,2016,0,60
-18,18,18,109,Lappeenrannan-Lahden teknillinen yliopisto,2016,0,178
-19,19,19,110,Oulun yliopisto,2016,0,204
-20,20,20,111,Svenska handelshögskolan,2016,0,37
-21,21,21,112,Taideyliopisto,2016,0,13
-22,22,22,113,Tampereen yliopisto,2016,0,316
-23,23,23,114,Turun yliopisto,2016,0,278
-24,24,24,115,Vaasan yliopisto,2016,0,56
-25,25,25,116,Åbo Akademi,2016,0,99
-26,26,26,52,Aalto-yliopisto,2017,0,315
-27,27,27,53,Helsingin yliopisto,2017,0,473
-28,28,28,54,Itä-Suomen yliopisto,2017,0,146
-29,29,29,55,Jyväskylän yliopisto,2017,0,128
-30,30,30,56,Lapin yliopisto,2017,0,59
-31,31,31,57,Lappeenrannan-Lahden teknillinen yliopisto,2017,0,123
-32,32,32,58,Oulun yliopisto,2017,0,179
-33,33,33,59,Svenska handelshögskolan,2017,0,20
-34,34,34,60,Taideyliopisto,2017,0,20
-35,35,35,61,Tampereen yliopisto,2017,0,258
-36,36,36,62,Turun yliopisto,2017,0,228
-37,37,37,63,Vaasan yliopisto,2017,0,35
-38,38,38,64,Åbo Akademi,2017,0,102
-39,39,39,0,Aalto-yliopisto,2018,0,232
-40,40,40,1,Helsingin yliopisto,2018,0,436
-41,41,41,2,Itä-Suomen yliopisto,2018,0,103
-42,42,42,3,Jyväskylän yliopisto,2018,0,95
-43,43,43,4,Lapin yliopisto,2018,0,36
-44,44,44,5,Lappeenrannan-Lahden teknillinen yliopisto,2018,0,65
-45,45,45,6,Oulun yliopisto,2018,0,98
-46,46,46,7,Svenska handelshögskolan,2018,0,12
-47,47,47,8,Taideyliopisto,2018,0,9
-48,48,48,9,Tampereen yliopisto,2018,0,191
-49,49,49,10,Turun yliopisto,2018,0,237
-50,50,50,11,Vaasan yliopisto,2018,0,26
-51,51,51,12,Åbo Akademi,2018,0,75
-52,52,52,169,Aalto-yliopisto,2015,1,1832
-53,53,53,170,Helsingin yliopisto,2015,1,4143
-54,54,54,171,Itä-Suomen yliopisto,2015,1,1406
-55,55,55,172,Jyväskylän yliopisto,2015,1,1111
-56,56,56,173,Lapin yliopisto,2015,1,187
-57,57,57,174,Lappeenrannan-Lahden teknillinen yliopisto,2015,1,561
-58,58,58,175,Oulun yliopisto,2015,1,1465
-59,59,59,176,Svenska handelshögskolan,2015,1,121
-60,60,60,177,Taideyliopisto,2015,1,32
-61,61,61,178,Tampereen yliopisto,2015,1,2020
-62,62,62,179,Turun yliopisto,2015,1,1830
-63,63,63,180,Vaasan yliopisto,2015,1,167
-64,64,64,181,Åbo Akademi,2015,1,537
-65,65,65,117,Aalto-yliopisto,2016,1,1897
-66,66,66,118,Helsingin yliopisto,2016,1,4214
-67,67,67,119,Itä-Suomen yliopisto,2016,1,1410
-68,68,68,120,Jyväskylän yliopisto,2016,1,1150
-69,69,69,121,Lapin yliopisto,2016,1,210
-70,70,70,122,Lappeenrannan-Lahden teknillinen yliopisto,2016,1,495
-71,71,71,123,Oulun yliopisto,2016,1,1510
-72,72,72,124,Svenska handelshögskolan,2016,1,94
-73,73,73,125,Taideyliopisto,2016,1,33
-74,74,74,126,Tampereen yliopisto,2016,1,2126
-75,75,75,127,Turun yliopisto,2016,1,1893
-76,76,76,128,Vaasan yliopisto,2016,1,212
-77,77,77,129,Åbo Akademi,2016,1,549
-78,78,78,65,Aalto-yliopisto,2017,1,1792
-79,79,79,66,Helsingin yliopisto,2017,1,4378
-80,80,80,67,Itä-Suomen yliopisto,2017,1,1405
-81,81,81,68,Jyväskylän yliopisto,2017,1,1133
-82,82,82,69,Lapin yliopisto,2017,1,200
-83,83,83,70,Lappeenrannan-Lahden teknillinen yliopisto,2017,1,510
-84,84,84,71,Oulun yliopisto,2017,1,1511
-85,85,85,72,Svenska handelshögskolan,2017,1,110
-86,86,86,73,Taideyliopisto,2017,1,58
-87,87,87,74,Tampereen yliopisto,2017,1,2191
-88,88,88,75,Turun yliopisto,2017,1,1974
-89,89,89,76,Vaasan yliopisto,2017,1,151
-90,90,90,77,Åbo Akademi,2017,1,512
-91,91,91,13,Aalto-yliopisto,2018,1,1901
-92,92,92,14,Helsingin yliopisto,2018,1,4461
-93,93,93,15,Itä-Suomen yliopisto,2018,1,1397
-94,94,94,16,Jyväskylän yliopisto,2018,1,1109
-95,95,95,17,Lapin yliopisto,2018,1,222
-96,96,96,18,Lappeenrannan-Lahden teknillinen yliopisto,2018,1,511
-97,97,97,19,Oulun yliopisto,2018,1,1554
-98,98,98,20,Svenska handelshögskolan,2018,1,98
-99,99,99,21,Taideyliopisto,2018,1,43
-100,100,100,22,Tampereen yliopisto,2018,1,2226
-101,101,101,23,Turun yliopisto,2018,1,2029
-102,102,102,24,Vaasan yliopisto,2018,1,196
-103,103,103,25,Åbo Akademi,2018,1,543
-104,104,104,182,Aalto-yliopisto,2015,2,866
-105,105,105,183,Helsingin yliopisto,2015,2,1714
-106,106,106,184,Itä-Suomen yliopisto,2015,2,481
-107,107,107,185,Jyväskylän yliopisto,2015,2,466
-108,108,108,186,Lapin yliopisto,2015,2,42
-109,109,109,187,Lappeenrannan-Lahden teknillinen yliopisto,2015,2,164
-110,110,110,188,Oulun yliopisto,2015,2,483
-111,111,111,189,Svenska handelshögskolan,2015,2,41
-112,112,112,190,Taideyliopisto,2015,2,13
-113,113,113,191,Tampereen yliopisto,2015,2,706
-114,114,114,192,Turun yliopisto,2015,2,690
-115,115,115,193,Vaasan yliopisto,2015,2,57
-116,116,116,194,Åbo Akademi,2015,2,236
-117,117,117,130,Aalto-yliopisto,2016,2,857
-118,118,118,131,Helsingin yliopisto,2016,2,1924
-119,119,119,132,Itä-Suomen yliopisto,2016,2,551
-120,120,120,133,Jyväskylän yliopisto,2016,2,542
-121,121,121,134,Lapin yliopisto,2016,2,58
-122,122,122,135,Lappeenrannan-Lahden teknillinen yliopisto,2016,2,178
-123,123,123,136,Oulun yliopisto,2016,2,524
-124,124,124,137,Svenska handelshögskolan,2016,2,61
-125,125,125,138,Taideyliopisto,2016,2,10
-126,126,126,139,Tampereen yliopisto,2016,2,737
-127,127,127,140,Turun yliopisto,2016,2,751
-128,128,128,141,Vaasan yliopisto,2016,2,42
-129,129,129,142,Åbo Akademi,2016,2,235
-130,130,130,78,Aalto-yliopisto,2017,2,831
-131,131,131,79,Helsingin yliopisto,2017,2,1974
-132,132,132,80,Itä-Suomen yliopisto,2017,2,539
-133,133,133,81,Jyväskylän yliopisto,2017,2,573
-134,134,134,82,Lapin yliopisto,2017,2,86
-135,135,135,83,Lappeenrannan-Lahden teknillinen yliopisto,2017,2,191
-136,136,136,84,Oulun yliopisto,2017,2,576
-137,137,137,85,Svenska handelshögskolan,2017,2,52
-138,138,138,86,Taideyliopisto,2017,2,11
-139,139,139,87,Tampereen yliopisto,2017,2,791
-140,140,140,88,Turun yliopisto,2017,2,823
-141,141,141,89,Vaasan yliopisto,2017,2,54
-142,142,142,90,Åbo Akademi,2017,2,290
-143,143,143,26,Aalto-yliopisto,2018,2,796
-144,144,144,27,Helsingin yliopisto,2018,2,1791
-145,145,145,28,Itä-Suomen yliopisto,2018,2,502
-146,146,146,29,Jyväskylän yliopisto,2018,2,549
-147,147,147,30,Lapin yliopisto,2018,2,76
-148,148,148,31,Lappeenrannan-Lahden teknillinen yliopisto,2018,2,242
-149,149,149,32,Oulun yliopisto,2018,2,588
-150,150,150,33,Svenska handelshögskolan,2018,2,48
-151,151,151,34,Taideyliopisto,2018,2,14
-152,152,152,35,Tampereen yliopisto,2018,2,672
-153,153,153,36,Turun yliopisto,2018,2,803
-154,154,154,37,Vaasan yliopisto,2018,2,62
-155,155,155,38,Åbo Akademi,2018,2,223
-156,156,156,195,Aalto-yliopisto,2015,3,359
-157,157,157,196,Helsingin yliopisto,2015,3,846
-158,158,158,197,Itä-Suomen yliopisto,2015,3,178
-159,159,159,198,Jyväskylän yliopisto,2015,3,182
-160,160,160,199,Lapin yliopisto,2015,3,17
-161,161,161,200,Lappeenrannan-Lahden teknillinen yliopisto,2015,3,28
-162,162,162,201,Oulun yliopisto,2015,3,197
-163,163,163,202,Svenska handelshögskolan,2015,3,20
-164,164,164,203,Taideyliopisto,2015,3,7
-165,165,165,204,Tampereen yliopisto,2015,3,240
-166,166,166,205,Turun yliopisto,2015,3,299
-167,167,167,206,Vaasan yliopisto,2015,3,12
-168,168,168,207,Åbo Akademi,2015,3,67
-169,169,169,143,Aalto-yliopisto,2016,3,363
-170,170,170,144,Helsingin yliopisto,2016,3,873
-171,171,171,145,Itä-Suomen yliopisto,2016,3,229
-172,172,172,146,Jyväskylän yliopisto,2016,3,164
-173,173,173,147,Lapin yliopisto,2016,3,22
-174,174,174,148,Lappeenrannan-Lahden teknillinen yliopisto,2016,3,41
-175,175,175,149,Oulun yliopisto,2016,3,225
-176,176,176,150,Svenska handelshögskolan,2016,3,21
-177,177,177,151,Taideyliopisto,2016,3,7
-178,178,178,152,Tampereen yliopisto,2016,3,264
-179,179,179,153,Turun yliopisto,2016,3,315
-180,180,180,154,Vaasan yliopisto,2016,3,19
-181,181,181,155,Åbo Akademi,2016,3,68
-182,182,182,91,Aalto-yliopisto,2017,3,303
-183,183,183,92,Helsingin yliopisto,2017,3,906
-184,184,184,93,Itä-Suomen yliopisto,2017,3,225
-185,185,185,94,Jyväskylän yliopisto,2017,3,222
-186,186,186,95,Lapin yliopisto,2017,3,12
-187,187,187,96,Lappeenrannan-Lahden teknillinen yliopisto,2017,3,55
-188,188,188,97,Oulun yliopisto,2017,3,223
-189,189,189,98,Svenska handelshögskolan,2017,3,26
-190,190,190,99,Taideyliopisto,2017,3,9
-191,191,191,100,Tampereen yliopisto,2017,3,309
-192,192,192,101,Turun yliopisto,2017,3,337
-193,193,193,102,Vaasan yliopisto,2017,3,41
-194,194,194,103,Åbo Akademi,2017,3,101
-195,195,195,39,Aalto-yliopisto,2018,3,352
-196,196,196,40,Helsingin yliopisto,2018,3,939
-197,197,197,41,Itä-Suomen yliopisto,2018,3,218
-198,198,198,42,Jyväskylän yliopisto,2018,3,215
-199,199,199,43,Lapin yliopisto,2018,3,42
-200,200,200,44,Lappeenrannan-Lahden teknillinen yliopisto,2018,3,90
-201,201,201,45,Oulun yliopisto,2018,3,231
-202,202,202,46,Svenska handelshögskolan,2018,3,28
-203,203,203,47,Taideyliopisto,2018,3,16
-204,204,204,48,Tampereen yliopisto,2018,3,343
-205,205,205,49,Turun yliopisto,2018,3,387
-206,206,206,50,Vaasan yliopisto,2018,3,34
-207,207,207,51,Åbo Akademi,2018,3,81
+,Unnamed: 0,Unnamed: 0.1,Unnamed: 0.1.1,Unnamed: 0.1.1.1,yliopisto,tilastovuosi,JUFO-taso,lkm
+0,0,0,0,156,Aalto-yliopisto,2015,0,480
+1,1,1,1,157,Helsingin yliopisto,2015,0,564
+2,2,2,2,158,Itä-Suomen yliopisto,2015,0,180
+3,3,3,3,159,Jyväskylän yliopisto,2015,0,208
+4,4,4,4,160,Lapin yliopisto,2015,0,69
+5,5,5,5,161,Lappeenrannan-Lahden teknillinen yliopisto,2015,0,165
+6,6,6,6,162,Oulun yliopisto,2015,0,231
+7,7,7,7,163,Svenska handelshögskolan,2015,0,49
+8,8,8,8,164,Taideyliopisto,2015,0,14
+9,9,9,9,165,Tampereen yliopisto,2015,0,444
+10,10,10,10,166,Turun yliopisto,2015,0,313
+11,11,11,11,167,Vaasan yliopisto,2015,0,51
+12,12,12,12,168,Åbo Akademi,2015,0,135
+13,13,13,13,104,Aalto-yliopisto,2016,0,447
+14,14,14,14,105,Helsingin yliopisto,2016,0,567
+15,15,15,15,106,Itä-Suomen yliopisto,2016,0,198
+16,16,16,16,107,Jyväskylän yliopisto,2016,0,162
+17,17,17,17,108,Lapin yliopisto,2016,0,60
+18,18,18,18,109,Lappeenrannan-Lahden teknillinen yliopisto,2016,0,178
+19,19,19,19,110,Oulun yliopisto,2016,0,204
+20,20,20,20,111,Svenska handelshögskolan,2016,0,37
+21,21,21,21,112,Taideyliopisto,2016,0,13
+22,22,22,22,113,Tampereen yliopisto,2016,0,316
+23,23,23,23,114,Turun yliopisto,2016,0,278
+24,24,24,24,115,Vaasan yliopisto,2016,0,56
+25,25,25,25,116,Åbo Akademi,2016,0,99
+26,26,26,26,52,Aalto-yliopisto,2017,0,315
+27,27,27,27,53,Helsingin yliopisto,2017,0,473
+28,28,28,28,54,Itä-Suomen yliopisto,2017,0,146
+29,29,29,29,55,Jyväskylän yliopisto,2017,0,128
+30,30,30,30,56,Lapin yliopisto,2017,0,59
+31,31,31,31,57,Lappeenrannan-Lahden teknillinen yliopisto,2017,0,123
+32,32,32,32,58,Oulun yliopisto,2017,0,179
+33,33,33,33,59,Svenska handelshögskolan,2017,0,20
+34,34,34,34,60,Taideyliopisto,2017,0,20
+35,35,35,35,61,Tampereen yliopisto,2017,0,258
+36,36,36,36,62,Turun yliopisto,2017,0,228
+37,37,37,37,63,Vaasan yliopisto,2017,0,35
+38,38,38,38,64,Åbo Akademi,2017,0,102
+39,39,39,39,0,Aalto-yliopisto,2018,0,232
+40,40,40,40,1,Helsingin yliopisto,2018,0,436
+41,41,41,41,2,Itä-Suomen yliopisto,2018,0,103
+42,42,42,42,3,Jyväskylän yliopisto,2018,0,95
+43,43,43,43,4,Lapin yliopisto,2018,0,36
+44,44,44,44,5,Lappeenrannan-Lahden teknillinen yliopisto,2018,0,65
+45,45,45,45,6,Oulun yliopisto,2018,0,98
+46,46,46,46,7,Svenska handelshögskolan,2018,0,12
+47,47,47,47,8,Taideyliopisto,2018,0,9
+48,48,48,48,9,Tampereen yliopisto,2018,0,191
+49,49,49,49,10,Turun yliopisto,2018,0,237
+50,50,50,50,11,Vaasan yliopisto,2018,0,26
+51,51,51,51,12,Åbo Akademi,2018,0,75
+52,52,52,52,169,Aalto-yliopisto,2015,1,1832
+53,53,53,53,170,Helsingin yliopisto,2015,1,4143
+54,54,54,54,171,Itä-Suomen yliopisto,2015,1,1406
+55,55,55,55,172,Jyväskylän yliopisto,2015,1,1111
+56,56,56,56,173,Lapin yliopisto,2015,1,187
+57,57,57,57,174,Lappeenrannan-Lahden teknillinen yliopisto,2015,1,561
+58,58,58,58,175,Oulun yliopisto,2015,1,1465
+59,59,59,59,176,Svenska handelshögskolan,2015,1,121
+60,60,60,60,177,Taideyliopisto,2015,1,32
+61,61,61,61,178,Tampereen yliopisto,2015,1,2020
+62,62,62,62,179,Turun yliopisto,2015,1,1830
+63,63,63,63,180,Vaasan yliopisto,2015,1,167
+64,64,64,64,181,Åbo Akademi,2015,1,537
+65,65,65,65,117,Aalto-yliopisto,2016,1,1897
+66,66,66,66,118,Helsingin yliopisto,2016,1,4214
+67,67,67,67,119,Itä-Suomen yliopisto,2016,1,1410
+68,68,68,68,120,Jyväskylän yliopisto,2016,1,1150
+69,69,69,69,121,Lapin yliopisto,2016,1,210
+70,70,70,70,122,Lappeenrannan-Lahden teknillinen yliopisto,2016,1,495
+71,71,71,71,123,Oulun yliopisto,2016,1,1510
+72,72,72,72,124,Svenska handelshögskolan,2016,1,94
+73,73,73,73,125,Taideyliopisto,2016,1,33
+74,74,74,74,126,Tampereen yliopisto,2016,1,2126
+75,75,75,75,127,Turun yliopisto,2016,1,1893
+76,76,76,76,128,Vaasan yliopisto,2016,1,212
+77,77,77,77,129,Åbo Akademi,2016,1,549
+78,78,78,78,65,Aalto-yliopisto,2017,1,1792
+79,79,79,79,66,Helsingin yliopisto,2017,1,4378
+80,80,80,80,67,Itä-Suomen yliopisto,2017,1,1405
+81,81,81,81,68,Jyväskylän yliopisto,2017,1,1133
+82,82,82,82,69,Lapin yliopisto,2017,1,200
+83,83,83,83,70,Lappeenrannan-Lahden teknillinen yliopisto,2017,1,510
+84,84,84,84,71,Oulun yliopisto,2017,1,1511
+85,85,85,85,72,Svenska handelshögskolan,2017,1,110
+86,86,86,86,73,Taideyliopisto,2017,1,58
+87,87,87,87,74,Tampereen yliopisto,2017,1,2191
+88,88,88,88,75,Turun yliopisto,2017,1,1974
+89,89,89,89,76,Vaasan yliopisto,2017,1,151
+90,90,90,90,77,Åbo Akademi,2017,1,512
+91,91,91,91,13,Aalto-yliopisto,2018,1,1901
+92,92,92,92,14,Helsingin yliopisto,2018,1,4461
+93,93,93,93,15,Itä-Suomen yliopisto,2018,1,1397
+94,94,94,94,16,Jyväskylän yliopisto,2018,1,1109
+95,95,95,95,17,Lapin yliopisto,2018,1,222
+96,96,96,96,18,Lappeenrannan-Lahden teknillinen yliopisto,2018,1,511
+97,97,97,97,19,Oulun yliopisto,2018,1,1554
+98,98,98,98,20,Svenska handelshögskolan,2018,1,98
+99,99,99,99,21,Taideyliopisto,2018,1,43
+100,100,100,100,22,Tampereen yliopisto,2018,1,2226
+101,101,101,101,23,Turun yliopisto,2018,1,2029
+102,102,102,102,24,Vaasan yliopisto,2018,1,196
+103,103,103,103,25,Åbo Akademi,2018,1,543
+104,104,104,104,182,Aalto-yliopisto,2015,2,866
+105,105,105,105,183,Helsingin yliopisto,2015,2,1714
+106,106,106,106,184,Itä-Suomen yliopisto,2015,2,481
+107,107,107,107,185,Jyväskylän yliopisto,2015,2,466
+108,108,108,108,186,Lapin yliopisto,2015,2,42
+109,109,109,109,187,Lappeenrannan-Lahden teknillinen yliopisto,2015,2,164
+110,110,110,110,188,Oulun yliopisto,2015,2,483
+111,111,111,111,189,Svenska handelshögskolan,2015,2,41
+112,112,112,112,190,Taideyliopisto,2015,2,13
+113,113,113,113,191,Tampereen yliopisto,2015,2,706
+114,114,114,114,192,Turun yliopisto,2015,2,690
+115,115,115,115,193,Vaasan yliopisto,2015,2,57
+116,116,116,116,194,Åbo Akademi,2015,2,236
+117,117,117,117,130,Aalto-yliopisto,2016,2,857
+118,118,118,118,131,Helsingin yliopisto,2016,2,1924
+119,119,119,119,132,Itä-Suomen yliopisto,2016,2,551
+120,120,120,120,133,Jyväskylän yliopisto,2016,2,542
+121,121,121,121,134,Lapin yliopisto,2016,2,58
+122,122,122,122,135,Lappeenrannan-Lahden teknillinen yliopisto,2016,2,178
+123,123,123,123,136,Oulun yliopisto,2016,2,524
+124,124,124,124,137,Svenska handelshögskolan,2016,2,61
+125,125,125,125,138,Taideyliopisto,2016,2,10
+126,126,126,126,139,Tampereen yliopisto,2016,2,737
+127,127,127,127,140,Turun yliopisto,2016,2,751
+128,128,128,128,141,Vaasan yliopisto,2016,2,42
+129,129,129,129,142,Åbo Akademi,2016,2,235
+130,130,130,130,78,Aalto-yliopisto,2017,2,831
+131,131,131,131,79,Helsingin yliopisto,2017,2,1974
+132,132,132,132,80,Itä-Suomen yliopisto,2017,2,539
+133,133,133,133,81,Jyväskylän yliopisto,2017,2,573
+134,134,134,134,82,Lapin yliopisto,2017,2,86
+135,135,135,135,83,Lappeenrannan-Lahden teknillinen yliopisto,2017,2,191
+136,136,136,136,84,Oulun yliopisto,2017,2,576
+137,137,137,137,85,Svenska handelshögskolan,2017,2,52
+138,138,138,138,86,Taideyliopisto,2017,2,11
+139,139,139,139,87,Tampereen yliopisto,2017,2,791
+140,140,140,140,88,Turun yliopisto,2017,2,823
+141,141,141,141,89,Vaasan yliopisto,2017,2,54
+142,142,142,142,90,Åbo Akademi,2017,2,290
+143,143,143,143,26,Aalto-yliopisto,2018,2,796
+144,144,144,144,27,Helsingin yliopisto,2018,2,1791
+145,145,145,145,28,Itä-Suomen yliopisto,2018,2,502
+146,146,146,146,29,Jyväskylän yliopisto,2018,2,549
+147,147,147,147,30,Lapin yliopisto,2018,2,76
+148,148,148,148,31,Lappeenrannan-Lahden teknillinen yliopisto,2018,2,242
+149,149,149,149,32,Oulun yliopisto,2018,2,588
+150,150,150,150,33,Svenska handelshögskolan,2018,2,48
+151,151,151,151,34,Taideyliopisto,2018,2,14
+152,152,152,152,35,Tampereen yliopisto,2018,2,672
+153,153,153,153,36,Turun yliopisto,2018,2,803
+154,154,154,154,37,Vaasan yliopisto,2018,2,62
+155,155,155,155,38,Åbo Akademi,2018,2,223
+156,156,156,156,195,Aalto-yliopisto,2015,3,359
+157,157,157,157,196,Helsingin yliopisto,2015,3,846
+158,158,158,158,197,Itä-Suomen yliopisto,2015,3,178
+159,159,159,159,198,Jyväskylän yliopisto,2015,3,182
+160,160,160,160,199,Lapin yliopisto,2015,3,17
+161,161,161,161,200,Lappeenrannan-Lahden teknillinen yliopisto,2015,3,28
+162,162,162,162,201,Oulun yliopisto,2015,3,197
+163,163,163,163,202,Svenska handelshögskolan,2015,3,20
+164,164,164,164,203,Taideyliopisto,2015,3,7
+165,165,165,165,204,Tampereen yliopisto,2015,3,240
+166,166,166,166,205,Turun yliopisto,2015,3,299
+167,167,167,167,206,Vaasan yliopisto,2015,3,12
+168,168,168,168,207,Åbo Akademi,2015,3,67
+169,169,169,169,143,Aalto-yliopisto,2016,3,363
+170,170,170,170,144,Helsingin yliopisto,2016,3,873
+171,171,171,171,145,Itä-Suomen yliopisto,2016,3,229
+172,172,172,172,146,Jyväskylän yliopisto,2016,3,164
+173,173,173,173,147,Lapin yliopisto,2016,3,22
+174,174,174,174,148,Lappeenrannan-Lahden teknillinen yliopisto,2016,3,41
+175,175,175,175,149,Oulun yliopisto,2016,3,225
+176,176,176,176,150,Svenska handelshögskolan,2016,3,21
+177,177,177,177,151,Taideyliopisto,2016,3,7
+178,178,178,178,152,Tampereen yliopisto,2016,3,264
+179,179,179,179,153,Turun yliopisto,2016,3,315
+180,180,180,180,154,Vaasan yliopisto,2016,3,19
+181,181,181,181,155,Åbo Akademi,2016,3,68
+182,182,182,182,91,Aalto-yliopisto,2017,3,303
+183,183,183,183,92,Helsingin yliopisto,2017,3,906
+184,184,184,184,93,Itä-Suomen yliopisto,2017,3,225
+185,185,185,185,94,Jyväskylän yliopisto,2017,3,222
+186,186,186,186,95,Lapin yliopisto,2017,3,12
+187,187,187,187,96,Lappeenrannan-Lahden teknillinen yliopisto,2017,3,55
+188,188,188,188,97,Oulun yliopisto,2017,3,223
+189,189,189,189,98,Svenska handelshögskolan,2017,3,26
+190,190,190,190,99,Taideyliopisto,2017,3,9
+191,191,191,191,100,Tampereen yliopisto,2017,3,309
+192,192,192,192,101,Turun yliopisto,2017,3,337
+193,193,193,193,102,Vaasan yliopisto,2017,3,41
+194,194,194,194,103,Åbo Akademi,2017,3,101
+195,195,195,195,39,Aalto-yliopisto,2018,3,352
+196,196,196,196,40,Helsingin yliopisto,2018,3,939
+197,197,197,197,41,Itä-Suomen yliopisto,2018,3,218
+198,198,198,198,42,Jyväskylän yliopisto,2018,3,215
+199,199,199,199,43,Lapin yliopisto,2018,3,42
+200,200,200,200,44,Lappeenrannan-Lahden teknillinen yliopisto,2018,3,90
+201,201,201,201,45,Oulun yliopisto,2018,3,231
+202,202,202,202,46,Svenska handelshögskolan,2018,3,28
+203,203,203,203,47,Taideyliopisto,2018,3,16
+204,204,204,204,48,Tampereen yliopisto,2018,3,343
+205,205,205,205,49,Turun yliopisto,2018,3,387
+206,206,206,206,50,Vaasan yliopisto,2018,3,34
+207,207,207,207,51,Åbo Akademi,2018,3,81

@@ -1,0 +1,151 @@
+,yliopisto,tilastovuosi,metric,Keskiarvo
+0,Aalto-yliopisto,2017,Career benefit,4.466666666666666
+1,Aalto-yliopisto,2017,Entrepreneurship,2.1
+2,Aalto-yliopisto,2017,Interdisciplinary capability,3.1
+3,Aalto-yliopisto,2017,Job challenge,4.9
+4,Aalto-yliopisto,2017,Learning & thinking skills,4.766666666666667
+5,Aalto-yliopisto,2017,Self-directedness,4.5
+6,Aalto-yliopisto,2018,Career benefit,4.5
+7,Aalto-yliopisto,2018,Entrepreneurship,2.2
+8,Aalto-yliopisto,2018,Interdisciplinary capability,3.2
+9,Aalto-yliopisto,2018,Job challenge,4.8
+10,Aalto-yliopisto,2018,Learning & thinking skills,4.766666666666667
+11,Aalto-yliopisto,2018,Self-directedness,4.4
+12,Helsingin yliopisto,2017,Career benefit,4.333333333333333
+13,Helsingin yliopisto,2017,Entrepreneurship,1.75
+14,Helsingin yliopisto,2017,Interdisciplinary capability,3.0
+15,Helsingin yliopisto,2017,Job challenge,4.65
+16,Helsingin yliopisto,2017,Learning & thinking skills,4.733333333333333
+17,Helsingin yliopisto,2017,Self-directedness,4.45
+18,Helsingin yliopisto,2018,Career benefit,4.233333333333333
+19,Helsingin yliopisto,2018,Entrepreneurship,1.7
+20,Helsingin yliopisto,2018,Interdisciplinary capability,3.0
+21,Helsingin yliopisto,2018,Job challenge,4.6
+22,Helsingin yliopisto,2018,Learning & thinking skills,4.7
+23,Helsingin yliopisto,2018,Self-directedness,4.4
+24,Itä-Suomen yliopisto,2018,Career benefit,4.433333333333333
+25,Itä-Suomen yliopisto,2018,Entrepreneurship,2.0
+26,Itä-Suomen yliopisto,2018,Interdisciplinary capability,3.1
+27,Itä-Suomen yliopisto,2018,Job challenge,4.7
+28,Itä-Suomen yliopisto,2018,Learning & thinking skills,4.6
+29,Itä-Suomen yliopisto,2018,Self-directedness,4.4
+30,Jyväskylän yliopisto,2017,Career benefit,4.3
+31,Jyväskylän yliopisto,2017,Entrepreneurship,1.9
+32,Jyväskylän yliopisto,2017,Interdisciplinary capability,3.1
+33,Jyväskylän yliopisto,2017,Job challenge,4.6
+34,Jyväskylän yliopisto,2017,Learning & thinking skills,4.666666666666667
+35,Jyväskylän yliopisto,2017,Self-directedness,4.7
+36,Jyväskylän yliopisto,2018,Career benefit,4.3
+37,Jyväskylän yliopisto,2018,Entrepreneurship,1.9
+38,Jyväskylän yliopisto,2018,Interdisciplinary capability,3.2
+39,Jyväskylän yliopisto,2018,Job challenge,4.6
+40,Jyväskylän yliopisto,2018,Learning & thinking skills,4.7
+41,Jyväskylän yliopisto,2018,Self-directedness,4.6
+42,Lapin yliopisto,2017,Career benefit,4.366666666666666
+43,Lapin yliopisto,2017,Entrepreneurship,2.0
+44,Lapin yliopisto,2017,Interdisciplinary capability,2.9
+45,Lapin yliopisto,2017,Job challenge,4.7
+46,Lapin yliopisto,2017,Learning & thinking skills,4.533333333333333
+47,Lapin yliopisto,2017,Self-directedness,4.8
+48,Lapin yliopisto,2018,Career benefit,4.3
+49,Lapin yliopisto,2018,Entrepreneurship,2.0
+50,Lapin yliopisto,2018,Interdisciplinary capability,3.2
+51,Lapin yliopisto,2018,Job challenge,4.6
+52,Lapin yliopisto,2018,Learning & thinking skills,4.566666666666666
+53,Lapin yliopisto,2018,Self-directedness,4.6
+54,Lappeenrannan-Lahden teknillinen yliopisto,2017,Career benefit,4.533333333333334
+55,Lappeenrannan-Lahden teknillinen yliopisto,2017,Entrepreneurship,2.6
+56,Lappeenrannan-Lahden teknillinen yliopisto,2017,Interdisciplinary capability,3.0
+57,Lappeenrannan-Lahden teknillinen yliopisto,2017,Job challenge,4.7
+58,Lappeenrannan-Lahden teknillinen yliopisto,2017,Learning & thinking skills,4.8
+59,Lappeenrannan-Lahden teknillinen yliopisto,2017,Self-directedness,4.5
+60,Lappeenrannan-Lahden teknillinen yliopisto,2018,Career benefit,4.466666666666668
+61,Lappeenrannan-Lahden teknillinen yliopisto,2018,Entrepreneurship,2.5
+62,Lappeenrannan-Lahden teknillinen yliopisto,2018,Interdisciplinary capability,3.2
+63,Lappeenrannan-Lahden teknillinen yliopisto,2018,Job challenge,4.6
+64,Lappeenrannan-Lahden teknillinen yliopisto,2018,Learning & thinking skills,4.800000000000001
+65,Lappeenrannan-Lahden teknillinen yliopisto,2018,Self-directedness,4.6
+66,Oulun yliopisto,2017,Career benefit,4.233333333333333
+67,Oulun yliopisto,2017,Entrepreneurship,1.8
+68,Oulun yliopisto,2017,Interdisciplinary capability,2.9
+69,Oulun yliopisto,2017,Job challenge,4.7
+70,Oulun yliopisto,2017,Learning & thinking skills,4.633333333333333
+71,Oulun yliopisto,2017,Self-directedness,4.4
+72,Oulun yliopisto,2018,Career benefit,4.3999999999999995
+73,Oulun yliopisto,2018,Entrepreneurship,1.9
+74,Oulun yliopisto,2018,Interdisciplinary capability,3.1
+75,Oulun yliopisto,2018,Job challenge,4.7
+76,Oulun yliopisto,2018,Learning & thinking skills,4.6000000000000005
+77,Oulun yliopisto,2018,Self-directedness,4.4
+78,Svenska handelshögskolan,2017,Career benefit,4.533333333333333
+79,Svenska handelshögskolan,2017,Entrepreneurship,3.0
+80,Svenska handelshögskolan,2017,Interdisciplinary capability,3.3
+81,Svenska handelshögskolan,2017,Job challenge,4.7
+82,Svenska handelshögskolan,2017,Learning & thinking skills,4.533333333333333
+83,Svenska handelshögskolan,2017,Self-directedness,4.2
+84,Svenska handelshögskolan,2018,Career benefit,4.433333333333334
+85,Svenska handelshögskolan,2018,Entrepreneurship,3.0
+86,Svenska handelshögskolan,2018,Interdisciplinary capability,3.3
+87,Svenska handelshögskolan,2018,Job challenge,4.6
+88,Svenska handelshögskolan,2018,Learning & thinking skills,4.6000000000000005
+89,Svenska handelshögskolan,2018,Self-directedness,4.3
+90,Taideyliopisto,2017,Career benefit,4.333333333333333
+91,Taideyliopisto,2017,Entrepreneurship,1.8
+92,Taideyliopisto,2017,Interdisciplinary capability,3.6
+93,Taideyliopisto,2017,Job challenge,4.3
+94,Taideyliopisto,2017,Learning & thinking skills,4.066666666666666
+95,Taideyliopisto,2017,Self-directedness,4.5
+96,Taideyliopisto,2018,Career benefit,4.499999999999999
+97,Taideyliopisto,2018,Entrepreneurship,2.0
+98,Taideyliopisto,2018,Interdisciplinary capability,3.6
+99,Taideyliopisto,2018,Job challenge,4.5
+100,Taideyliopisto,2018,Learning & thinking skills,4.0
+101,Taideyliopisto,2018,Self-directedness,4.4
+102,Tampereen yliopisto,2017,Career benefit,4.366666666666666
+103,Tampereen yliopisto,2017,Entrepreneurship,1.9
+104,Tampereen yliopisto,2017,Interdisciplinary capability,2.9
+105,Tampereen yliopisto,2017,Job challenge,4.7
+106,Tampereen yliopisto,2017,Learning & thinking skills,4.8
+107,Tampereen yliopisto,2017,Self-directedness,4.6
+108,Tampereen yliopisto,2018,Career benefit,4.3999999999999995
+109,Tampereen yliopisto,2018,Entrepreneurship,1.9
+110,Tampereen yliopisto,2018,Interdisciplinary capability,3.0
+111,Tampereen yliopisto,2018,Job challenge,4.7
+112,Tampereen yliopisto,2018,Learning & thinking skills,4.766666666666667
+113,Tampereen yliopisto,2018,Self-directedness,4.5
+114,Turun yliopisto,2017,Career benefit,4.3
+115,Turun yliopisto,2017,Entrepreneurship,1.8
+116,Turun yliopisto,2017,Interdisciplinary capability,3.0
+117,Turun yliopisto,2017,Job challenge,4.7
+118,Turun yliopisto,2017,Learning & thinking skills,4.666666666666667
+119,Turun yliopisto,2017,Self-directedness,4.5
+120,Turun yliopisto,2018,Career benefit,4.233333333333333
+121,Turun yliopisto,2018,Entrepreneurship,1.9
+122,Turun yliopisto,2018,Interdisciplinary capability,3.0
+123,Turun yliopisto,2018,Job challenge,4.6
+124,Turun yliopisto,2018,Learning & thinking skills,4.666666666666667
+125,Turun yliopisto,2018,Self-directedness,4.4
+126,Vaasan yliopisto,2017,Career benefit,4.3
+127,Vaasan yliopisto,2017,Entrepreneurship,2.3
+128,Vaasan yliopisto,2017,Interdisciplinary capability,2.9
+129,Vaasan yliopisto,2017,Job challenge,4.3
+130,Vaasan yliopisto,2017,Learning & thinking skills,4.633333333333333
+131,Vaasan yliopisto,2017,Self-directedness,4.5
+132,Vaasan yliopisto,2018,Career benefit,4.4
+133,Vaasan yliopisto,2018,Entrepreneurship,2.4
+134,Vaasan yliopisto,2018,Interdisciplinary capability,3.2
+135,Vaasan yliopisto,2018,Job challenge,4.5
+136,Vaasan yliopisto,2018,Learning & thinking skills,4.8
+137,Vaasan yliopisto,2018,Self-directedness,4.6
+138,Åbo Akademi,2017,Career benefit,4.333333333333333
+139,Åbo Akademi,2017,Entrepreneurship,2.0
+140,Åbo Akademi,2017,Interdisciplinary capability,3.5
+141,Åbo Akademi,2017,Job challenge,4.5
+142,Åbo Akademi,2017,Learning & thinking skills,4.633333333333333
+143,Åbo Akademi,2017,Self-directedness,4.2
+144,Åbo Akademi,2018,Career benefit,4.266666666666667
+145,Åbo Akademi,2018,Entrepreneurship,2.0
+146,Åbo Akademi,2018,Interdisciplinary capability,3.4
+147,Åbo Akademi,2018,Job challenge,4.4
+148,Åbo Akademi,2018,Learning & thinking skills,4.3999999999999995
+149,Åbo Akademi,2018,Self-directedness,4.1

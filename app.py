@@ -3,6 +3,7 @@ from dash.dependencies import Input, Output
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly
+import plotly.subplots as ps
 import plotly.graph_objects as go
 import plotly.express as px
 import flask
@@ -33,8 +34,13 @@ student_feedback['metric'] = student_feedback['metric'].map({
     'Koulutuksen myötä kehittynyt osaamiseni vastaa odotuksiani.':'Degree satisfaction',
     'Tarjolla on ollut riittävästi ohjausta kandidaatin tutkielman laatimiseen/opinnäytteen tekemiseen.':'Thesis guidance'
 })
-student_feedback = student_feedback.groupby(['yliopisto','metric','tilastovuosi'], as_index=False).mean()
+#Looks like naming convention for universities is different in this table, may need to map for linking
 employment = pd.read_csv('data/tyollistyminen_data.csv')
+employment['Työllinen'] = (employment['Työllinen'] / employment['Yhteensä'])
+employment['Työtön'] = (employment['Työtön'] / employment['Yhteensä'])
+employment['Päätoiminen opiskelija'] = (employment['Päätoiminen opiskelija'] / employment['Yhteensä'])
+employment = pd.melt(employment, id_vars=['yliopisto', 'tilastovuosi'], value_vars=['Työllinen','Päätoiminen opiskelija','Työtön','Muut','Muuttanut maasta','Yhteensä'], var_name='Tila',value_name='Keskiarvo')
+employment = employment[employment.Tila.isin(['Työllinen', 'Työtön', 'Päätoiminen opiskelija'])]
 publications = pd.read_csv('data/jufo_data.csv')
 publications['JUFO-taso'] = publications['JUFO-taso'].astype(str)
 career_feedback = pd.read_csv('data/uraseuranta_data.csv')
@@ -62,29 +68,18 @@ career_feedback['metric'] = career_feedback['metric'].map({
     '27) yrittäjyystaidot':'Entrepreneurship'
 })
 career_feedback = career_feedback.groupby(['yliopisto', 'tilastovuosi', 'metric'], as_index=False).mean()
-career_feedback['yliopisto-tilastovuosi'] = career_feedback['yliopisto'] + '.' + career_feedback['tilastovuosi'].astype(str)
-career_feedback = career_feedback.pivot(index='yliopisto-tilastovuosi', columns='metric', values='Keskiarvo')
-career_feedback.reset_index(inplace=True)
-career_feedback['yliopisto'] = career_feedback['yliopisto-tilastovuosi'].str.split('.', expand=True)[0]
-career_feedback['tilastovuosi'] = career_feedback['yliopisto-tilastovuosi'].str.split('.', expand=True)[1]
-career_feedback.drop(['yliopisto-tilastovuosi'], axis=1, inplace=True)
 
+#get list of universities for dropdown
 unis = degrees.yliopisto.unique()
 
-#temporary data restrictions and dummy data
-student_feedback = student_feedback[student_feedback['tilastovuosi']==2019]
-employment = employment[employment['tilastovuosi'] == 2015]
-employment = employment[['yliopisto', 'Työllinen', 'Päätoiminen opiskelija', 'Työtön']]
-#END OF DUMMY DATA
-
-fig = px.bar(degrees, x='yliopisto', y='lkm', color='Tutkintotyyppi')
-fig2 = px.line_polar(student_feedback, r='Keskiarvo', theta='metric', hover_name='yliopisto', color='yliopisto', range_r=[student_feedback.Keskiarvo.min()-0.2,student_feedback.Keskiarvo.max()+0.2], line_close=True)
+#create placeholder figures before they are reloaded with filtered data
+fig = px.bar(degrees, x='yliopisto', y='lkm', color='Tutkintotyyppi', title='Completed degrees')
+fig2 = px.line_polar(student_feedback, r='Keskiarvo', theta='metric', hover_name='yliopisto', color='yliopisto', range_r=[student_feedback.Keskiarvo.min()-0.2,student_feedback.Keskiarvo.max()+0.2], line_close=True, title='Student feedback')
 fig2.update_layout(legend_orientation="h")
-fig3 = px.bar(employment[['yliopisto', 'Työllinen']], x='yliopisto', y='Työllinen')
-fig4 = px.bar(employment[['yliopisto', 'Päätoiminen opiskelija']], x='yliopisto', y='Päätoiminen opiskelija')
-fig5 = px.bar(employment[['yliopisto', 'Työtön']], x='yliopisto', y='Työtön')
-fig6 = px.bar(publications, x='yliopisto', y='lkm', color='JUFO-taso')
-fig7 = px.parallel_coordinates(career_feedback, dimensions=['Entrepreneurship','Interdisciplinary capability', 'Job challenge', 'Learning & thinking skills', 'Self-directedness'])
+fig_345 = ps.make_subplots(rows=3, cols=1)
+fig6 = px.bar(publications, x='yliopisto', y='lkm', color='JUFO-taso', title='Publications')
+fig7 = px.line(career_feedback, x='metric', y='Keskiarvo', color='yliopisto', hover_name='yliopisto', hover_data=['metric', 'Keskiarvo'], range_y=[1,5], title='Career feedback')
+fig7.update_traces(mode='lines+markers')
 
 server = app.server
 
@@ -107,6 +102,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='university-selection',
                 options=[{'label':x, 'value':x} for x in unis],
+                value=['Aalto-yliopisto', 'Helsingin yliopisto', 'Lapin yliopisto'],
                 multi=True
             ),
         ],
@@ -140,31 +136,17 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Div([
-                dcc.Graph(figure=fig)
+                dcc.Graph(id='completed_degrees',figure=fig)
             ],
             className="four columns"
             ),
             html.Div([
-                dcc.Graph(figure=fig2)
+                dcc.Graph(id='student_feedback', figure=fig2)
             ],
             className="four columns"
             ),
             html.Div([
-                html.Div([
-                    dcc.Graph(figure=fig5, style={'height':200})
-                ],
-                className="row"
-                ),
-                html.Div([
-                    dcc.Graph(figure=fig4, style={'height':200})
-                ],
-                className="row"
-                ),
-                html.Div([
-                    dcc.Graph(figure=fig3, style={'height':200})
-                ],
-                className="row"
-                ),
+                dcc.Graph(id='employment', figure=fig_345)
             ],
             className="four columns"
             ),
@@ -173,12 +155,12 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Div([
-                dcc.Graph(figure=fig6)
+                dcc.Graph(id='publications', figure=fig6)
             ],
             className="four columns"
             ),
             html.Div([
-                dcc.Graph(figure=fig7)
+                dcc.Graph(id = 'career_feedback',figure=fig7)
             ],
             className="eight columns"
             ),
@@ -189,13 +171,50 @@ app.layout = html.Div([
 )
 
 #Year selector
-"""
+
 @app.callback(
-    Output('year-test-output', 'children'),
-    [Input('year-selection', 'value')])
-def update_year(value):
-    return f"First selector: {value[0]} and second selector: {value[1]}"
-"""
+    [Output('completed_degrees', 'figure'),
+    Output('student_feedback', 'figure'),
+    Output('publications','figure'),
+    Output('career_feedback','figure'),
+    Output('employment', 'figure')],
+    [Input('year-selection', 'value'),
+    Input('university-selection', 'value')])
+def update_year(years, universities):
+    #fig1
+    filtered_degrees = degrees[degrees['tilastovuosi'].between(years[0], years[1])]
+    filtered_degrees = filtered_degrees[filtered_degrees.yliopisto.isin(universities)]
+    filtered_degrees = filtered_degrees.groupby(['yliopisto', 'Tutkintotyyppi'], as_index=False).sum()
+    filtered_degrees.sort_values(by=['yliopisto','Tutkintotyyppi'], inplace=True)
+    fig_degrees = px.bar(filtered_degrees, x='yliopisto', y='lkm', color='Tutkintotyyppi', title='Completed degrees')
+    #fig2
+    filtered_sfeedback = student_feedback[student_feedback['tilastovuosi'].between(years[0], years[1])]
+    filtered_sfeedback = filtered_sfeedback[filtered_sfeedback.yliopisto.isin(universities)]
+    filtered_sfeedback = filtered_sfeedback.groupby(['yliopisto','metric'], as_index=False).mean()
+    fig_sfeedback = px.line_polar(filtered_sfeedback, r='Keskiarvo', theta='metric', hover_name='yliopisto', color='yliopisto', range_r=[student_feedback.Keskiarvo.min()-0.2,student_feedback.Keskiarvo.max()+0.2], line_close=True, title='Student feedback')
+    fig_sfeedback.update_layout(legend_orientation="h")
+    fig_sfeedback.update_traces(mode='lines+markers')
+    #fig3-6
+    filtered_employed = employment[employment['tilastovuosi'].between(years[0], years[1])]
+    filtered_employed = filtered_employed[filtered_employed.yliopisto.isin(universities)]
+    filtered_employed = filtered_employed.groupby(['yliopisto', 'Tila'], as_index=False).mean()
+    fig_345 = px.bar(filtered_employed, facet_row='Tila', x='yliopisto', y='Keskiarvo', height=500, title='Employment')
+    fig_345.update_yaxes(tickformat = '%')
+    fig_345.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+    #fig6
+    filtered_publications = publications[publications['tilastovuosi'].between(years[0], years[1])]
+    filtered_publications = filtered_publications[filtered_publications.yliopisto.isin(universities)]
+    filtered_publications = filtered_publications.groupby(['yliopisto', 'JUFO-taso'], as_index=False).sum()
+    fig_publications = px.bar(filtered_publications, x='yliopisto', y='lkm', color='JUFO-taso', title='Publications')
+    #fig7
+    filtered_cfeedback = career_feedback[career_feedback['tilastovuosi'].between(years[0], years[1])]
+    filtered_cfeedback = filtered_cfeedback[filtered_cfeedback.yliopisto.isin(universities)]
+    filtered_cfeedback = filtered_cfeedback.groupby(['yliopisto', 'metric'], as_index=False).mean()
+    fig_cfeedback = px.line(filtered_cfeedback, x='metric', y='Keskiarvo', color='yliopisto', hover_name='yliopisto', hover_data=['metric', 'Keskiarvo'], range_y=[1,5], title='Career feedback')
+    fig_cfeedback.update_traces(mode='lines+markers')
+
+    return  fig_degrees, fig_sfeedback, fig_publications, fig_cfeedback, fig_345
+
 
 #University selector TBD
 
