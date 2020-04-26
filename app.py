@@ -13,6 +13,7 @@ external_stylesheets = ['https://cdn.rawgit.com/plotly/dash-app-stylesheets/2d26
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+#Load and transform data
 degrees = pd.read_csv('data/degrees_data_2.csv')
 student_feedback = pd.read_csv('data/opiskelijapalaute_data.csv')
 student_feedback = student_feedback[['väittämä', 'yliopisto', 'tilastovuosi', 'Keskiarvo (rahoitusmalli)']]
@@ -40,18 +41,33 @@ career_feedback = pd.read_csv('data/uraseuranta_data.csv')
 career_feedback = career_feedback[['väittämä','yliopisto', 'tilastovuosi', 'Keskiarvo (maisterit)']]
 career_feedback = career_feedback.rename(columns={'väittämä':'metric', 'Keskiarvo (maisterit)':'Keskiarvo'})
 career_feedback['metric'] = career_feedback['metric'].map({
+    '19.  Arvioi vuonna 2012 suorittamaasi tutkintoa ja nykyistä työtäsi. Valitse sopivin vaihtoehto seuraaviin väitteisiin:  a) Pystyn hyödyntämään yliopistossa oppimiani tietoja ja taitoja nykyisessä työssäni hyvin.':'Career benefit',
     'a) Pystyn hyödyntämään yliopistossa oppimiani tietoja ja taitoja nykyisessä työssäni hyvin.':'Career benefit',
     'd)  Koulutus antoi riittävät valmiudet työelämään.':'Career benefit',
+    '3.4 Koulutus antoi riittävät valmiudet työelämään.':'Career benefit',
     '4.  Miten tyytyväinen olet kokonaisuudessaan vuonna 2012 suorittamaasi tutkintoon työurasi kannalta?':'Career benefit',
+    '4. Miten tyytyväinen olet kokonaisuudessaan vuonna 2013 suorittamaasi tutkintoon työurasi kannalta?':'Career benefit',
     '3)  analyyttiset, systemaattisen ajattelun taidot':'Learning & thinking skills',
+    '3) analyyttiset, systemaattisen ajattelun taidot':'Learning & thinking skills',
     '21)  kyky oppia ja omaksua uutta':'Learning & thinking skills',
+    '21) kyky oppia ja omaksua uutta':'Learning & thinking skills',
     '4)  tiedonhankintataidot':'Learning & thinking skills',
+    '4) tiedonhankintataidot':'Learning & thinking skills',
     'b) Työni vastaa vaativuustasoltaan hyvin yliopistollista koulutustani.':'Job challenge',
     '23)  tieteiden- tai taiteidenvälisyys/moniammatillisissa ryhmissä toimiminen':'Interdisciplinary capability',
+    '23) tieteiden- tai taiteidenvälisyys/moniammatillisissa ryhmissä toimiminen':'Interdisciplinary capability',
     '26)  itseohjautuvuus/oma-aloitteisuus':'Self-directedness',
-    '27)  yrittäjyystaidot':'Entrepreneurship'
+    '26) itseohjautuvuus/oma-aloitteisuus':'Self-directedness',
+    '27)  yrittäjyystaidot':'Entrepreneurship',
+    '27) yrittäjyystaidot':'Entrepreneurship'
 })
-career_feedback = career_feedback.groupby(['yliopisto', 'metric', 'tilastovuosi'], as_index=False).mean()
+career_feedback = career_feedback.groupby(['yliopisto', 'tilastovuosi', 'metric'], as_index=False).mean()
+career_feedback['yliopisto-tilastovuosi'] = career_feedback['yliopisto'] + '.' + career_feedback['tilastovuosi'].astype(str)
+career_feedback = career_feedback.pivot(index='yliopisto-tilastovuosi', columns='metric', values='Keskiarvo')
+career_feedback.reset_index(inplace=True)
+career_feedback['yliopisto'] = career_feedback['yliopisto-tilastovuosi'].str.split('.', expand=True)[0]
+career_feedback['tilastovuosi'] = career_feedback['yliopisto-tilastovuosi'].str.split('.', expand=True)[1]
+career_feedback.drop(['yliopisto-tilastovuosi'], axis=1, inplace=True)
 
 unis = degrees.yliopisto.unique()
 
@@ -68,7 +84,7 @@ fig3 = px.bar(employment[['yliopisto', 'Työllinen']], x='yliopisto', y='Työlli
 fig4 = px.bar(employment[['yliopisto', 'Päätoiminen opiskelija']], x='yliopisto', y='Päätoiminen opiskelija')
 fig5 = px.bar(employment[['yliopisto', 'Työtön']], x='yliopisto', y='Työtön')
 fig6 = px.bar(publications, x='yliopisto', y='lkm', color='JUFO-taso')
-fig7 = px.parallel_coordinates(career_feedback, dimensions=['metric'])
+fig7 = px.parallel_coordinates(career_feedback, dimensions=['Entrepreneurship','Interdisciplinary capability', 'Job challenge', 'Learning & thinking skills', 'Self-directedness'])
 
 server = app.server
 
