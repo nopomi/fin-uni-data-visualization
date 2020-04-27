@@ -198,7 +198,7 @@ def update_year(years, universities):
     filtered_employed = employment[employment['tilastovuosi'].between(years[0], years[1])]
     filtered_employed = filtered_employed[filtered_employed.yliopisto.isin(universities)]
     filtered_employed = filtered_employed.groupby(['yliopisto', 'Tila'], as_index=False).mean()
-    fig_345 = px.bar(filtered_employed, facet_row='Tila', x='yliopisto', y='Keskiarvo', height=500, title='Employment')
+    fig_345 = px.bar(filtered_employed, facet_row='Tila', x='yliopisto', y='Keskiarvo', height=500, title='Employment 2 years after graduation')
     fig_345.update_yaxes(tickformat = '%')
     fig_345.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
     #fig6
