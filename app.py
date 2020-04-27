@@ -34,15 +34,25 @@ student_feedback['metric'] = student_feedback['metric'].map({
     'Koulutuksen myötä kehittynyt osaamiseni vastaa odotuksiani.':'Degree satisfaction',
     'Tarjolla on ollut riittävästi ohjausta kandidaatin tutkielman laatimiseen/opinnäytteen tekemiseen.':'Thesis guidance'
 })
-#Looks like naming convention for universities is different in this table, may need to map for linking
+student_feedback['yliopisto'] = student_feedback['yliopisto'].replace({
+    'Lappeenrannan-Lahden teknillinen yliopisto':'Lappeenrannan–Lahden teknillinen yliopisto',
+    'Itä-Suomen Yliopisto':'Itä-Suomen yliopisto'
+})
+
 employment = pd.read_csv('data/tyollistyminen_data.csv')
 employment['Työllinen'] = (employment['Työllinen'] / employment['Yhteensä'])
 employment['Työtön'] = (employment['Työtön'] / employment['Yhteensä'])
 employment['Päätoiminen opiskelija'] = (employment['Päätoiminen opiskelija'] / employment['Yhteensä'])
 employment = pd.melt(employment, id_vars=['yliopisto', 'tilastovuosi'], value_vars=['Työllinen','Päätoiminen opiskelija','Työtön','Muut','Muuttanut maasta','Yhteensä'], var_name='Tila',value_name='Keskiarvo')
 employment = employment[employment.Tila.isin(['Työllinen', 'Työtön', 'Päätoiminen opiskelija'])]
+employment['yliopisto'] =employment['yliopisto'].replace({
+    'Lappeenrannan tekn. yliopisto':'Lappeenrannan–Lahden teknillinen yliopisto'
+})
 publications = pd.read_csv('data/jufo_data.csv')
 publications['JUFO-taso'] = publications['JUFO-taso'].astype(str)
+publications['yliopisto'] = publications['yliopisto'].replace({
+    'Lappeenrannan-Lahden teknillinen yliopisto':'Lappeenrannan–Lahden teknillinen yliopisto'
+})
 career_feedback = pd.read_csv('data/uraseuranta_data.csv')
 career_feedback = career_feedback[['väittämä','yliopisto', 'tilastovuosi', 'Keskiarvo (maisterit)']]
 career_feedback = career_feedback.rename(columns={'väittämä':'metric', 'Keskiarvo (maisterit)':'Keskiarvo'})
@@ -66,6 +76,9 @@ career_feedback['metric'] = career_feedback['metric'].map({
     '26) itseohjautuvuus/oma-aloitteisuus':'Self-directedness',
     '27)  yrittäjyystaidot':'Entrepreneurship',
     '27) yrittäjyystaidot':'Entrepreneurship'
+})
+career_feedback['yliopisto'] = career_feedback['yliopisto'].replace({
+    'Lappeenrannan-Lahden teknillinen yliopisto':'Lappeenrannan–Lahden teknillinen yliopisto'
 })
 career_feedback = career_feedback.groupby(['yliopisto', 'tilastovuosi', 'metric'], as_index=False).mean()
 
