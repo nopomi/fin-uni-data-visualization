@@ -165,17 +165,35 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Div([
-                dcc.Graph(id='completed_degrees',figure=fig)
+                dcc.Graph(id='completed_degrees',
+                figure=fig,
+                config={
+                    'modeBarButtonsToRemove': ['select2d','hoverClosestCartesian',
+                    'hoverCompareCartesian','lasso2d','resetScale2d',
+                    'toggleSpikelines','toggleHover'],
+                'displaylogo':False})
             ],
             className="four columns"
             ),
             html.Div([
-                dcc.Graph(id='publications', figure=fig6)
+                dcc.Graph(id='publications',
+                figure=fig6,
+                config={
+                    'modeBarButtonsToRemove': ['select2d','hoverClosestCartesian',
+                    'hoverCompareCartesian','lasso2d','resetScale2d',
+                    'toggleSpikelines','toggleHover'],
+                'displaylogo':False})
             ],
             className="four columns"
             ),
             html.Div([
-                dcc.Graph(id='employment', figure=fig_345)
+                dcc.Graph(id='employment',
+                figure=fig_345,
+                config={
+                    'modeBarButtonsToRemove': ['select2d','hoverClosestCartesian',
+                    'hoverCompareCartesian','lasso2d','resetScale2d',
+                    'toggleSpikelines','toggleHover'],
+                'displaylogo':False})
             ],
             className="four columns"
             ),
@@ -185,7 +203,13 @@ app.layout = html.Div([
 
         html.Div([
             html.Div([
-                dcc.Graph(id = 'student_feedback',figure=fig2)
+                dcc.Graph(id = 'student_feedback',
+                figure=fig2,
+                config={
+                    'modeBarButtonsToRemove': ['select2d','hoverClosestCartesian',
+                    'hoverCompareCartesian','lasso2d','resetScale2d',
+                    'toggleSpikelines','toggleHover'],
+                'displaylogo':False})
             ],
             ),
         ],
@@ -193,7 +217,13 @@ app.layout = html.Div([
         ),
         html.Div([
             html.Div([
-                dcc.Graph(id = 'career_feedback',figure=fig7)
+                dcc.Graph(id = 'career_feedback',
+                figure=fig7,
+                config={
+                    'modeBarButtonsToRemove': ['select2d','hoverClosestCartesian',
+                    'hoverCompareCartesian','lasso2d','resetScale2d',
+                    'toggleSpikelines','toggleHover'],
+                'displaylogo':False})
             ],
             ),
         ],
