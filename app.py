@@ -25,6 +25,7 @@ degrees['Degree level'] = degrees['Degree level'].replace({
     'Ylempi korkeakoulututkinto':'Master\'s',
     'Tohtorintutkinto':'PhD'
 })
+degrees = degrees.rename(columns={'lkm':'amount'})
 student_feedback = pd.read_csv('data/opiskelijapalaute_data.csv')
 student_feedback = student_feedback[['väittämä', 'yliopisto', 'tilastovuosi', 'Keskiarvo (rahoitusmalli)']]
 student_feedback = student_feedback.rename(columns={'Keskiarvo (rahoitusmalli)':'Keskiarvo', 'väittämä':'metric'})
@@ -63,6 +64,7 @@ publications['JUFO-class'] = publications['JUFO-class'].astype(str)
 publications['yliopisto'] = publications['yliopisto'].replace({
     'Lappeenrannan-Lahden teknillinen yliopisto':'Lappeenrannan–Lahden teknillinen yliopisto'
 })
+publications = publications.rename(columns={'lkm':'amount'})
 career_feedback = pd.read_csv('data/uraseuranta_data.csv')
 career_feedback = career_feedback[['väittämä','yliopisto', 'tilastovuosi', 'Keskiarvo (maisterit)']]
 career_feedback = career_feedback.rename(columns={'väittämä':'metric', 'Keskiarvo (maisterit)':'Keskiarvo'})
@@ -93,7 +95,10 @@ career_feedback['yliopisto'] = career_feedback['yliopisto'].replace({
 career_feedback = career_feedback.groupby(['yliopisto', 'tilastovuosi', 'metric'], as_index=False).mean()
 
 #get list of universities for dropdown
-unis = degrees.yliopisto.unique()
+unis = list(degrees.yliopisto.unique())
+
+#create dict of persistent colors for each university (using the built-in Light24 color scale)
+uni_colors = dict(zip(unis,px.colors.qualitative.Alphabet[:13]))
 
 #create placeholder figures before they are reloaded with filtered data
 fig = px.bar()
@@ -208,15 +213,78 @@ app.layout = html.Div([
     [Input('year-selection', 'value'),
     Input('university-selection', 'value')])
 def update_year(years, universities):
+    #if no filters are selected for universities, show all
+    if not universities:
+        universities = unis.copy()
+
+    #sort universities so that each keeps the same color when assigned to a fig
+    universities.sort(reverse=True)
+
+    #create list of colors with selected universities
+    colors = [uni_colors[x] for x in universities]
 
     #degrees
     filtered_degrees = degrees[degrees['tilastovuosi'].between(years[0], years[1])]
     filtered_degrees = filtered_degrees[filtered_degrees.yliopisto.isin(universities)]
     filtered_degrees = filtered_degrees.groupby(['yliopisto', 'Degree level'], as_index=False).sum()
     filtered_degrees.sort_values(by=['yliopisto','Degree level'], inplace=True)
-    fig_degrees = px.bar(filtered_degrees, x='yliopisto', y='lkm', color='Degree level', title='Completed degrees')
+    fig_degrees = px.bar(filtered_degrees, x='yliopisto', y='amount', color='Degree level', title='Completed degrees')
     fig_degrees.update_xaxes(title='')
     fig_degrees.update_yaxes(title='')
+    fig_degrees.update_traces(hovertemplate=
+        '<b>%{x}</b><br><br>' +
+        'Graduates: %{y}'
+    )
+
+    #publications
+    filtered_publications = publications[publications['tilastovuosi'].between(years[0], years[1])]
+    filtered_publications = filtered_publications[filtered_publications.yliopisto.isin(universities)]
+    filtered_publications = filtered_publications.groupby(['yliopisto', 'JUFO-class'], as_index=False).sum()
+    fig_publications = px.bar(filtered_publications, x='yliopisto', y='amount', color='JUFO-class', title='Publications')
+    fig_publications.update_xaxes(title='')
+    fig_publications.update_yaxes(title='')
+    fig_publications.update_traces(hovertemplate=
+        '<b>%{x}</b><br><br>' +
+        'Publications: %{y}'
+    )
+
+    #employment
+    filtered_employed = employment[employment['tilastovuosi'].between(years[0], years[1])]
+    filtered_employed = filtered_employed[filtered_employed.yliopisto.isin(universities)]
+    filtered_employed = filtered_employed.groupby(['yliopisto', 'Tila'], as_index=False).mean()
+    fig_employment = ps.make_subplots(rows=2, cols=1, shared_xaxes=True, shared_yaxes=False, subplot_titles=("Employed", "Unemployed"))
+    fig_employment.append_trace(
+        go.Bar(
+        x=filtered_employed[filtered_employed.Tila == 'Työllinen'].yliopisto,
+        y=filtered_employed[filtered_employed.Tila == 'Työllinen'].Keskiarvo,
+        name='Employed',
+        text = filtered_employed[filtered_employed['Tila'] == 'Työllinen'].Keskiarvo,
+        textposition='inside',
+        texttemplate='%{y:.1%}',
+        marker_color=colors[::-1],
+        hovertemplate=
+        "<b>%{x}</b><br><br>" +
+        "Employed graduates: %{y:.2%}<br>",
+        ), row=1, col=1
+    )
+    fig_employment.append_trace(
+        go.Bar(
+        x=filtered_employed[filtered_employed.Tila == 'Työtön'].yliopisto,
+        y=filtered_employed[filtered_employed.Tila == 'Työtön'].Keskiarvo,
+        name = 'Unemployed',
+        text = filtered_employed[filtered_employed['Tila'] == 'Työllinen'].Keskiarvo,
+        textposition='inside',
+        texttemplate='%{y:.1%}',
+        marker_color=colors[::-1],
+        hovertemplate=
+        "<b>%{x}</b><br><br>" +
+        "Unemployed graduates: %{y:.2%}<br>",
+        ), row=2, col=1
+    )
+    fig_employment.update_yaxes(tickformat='%')
+    fig_employment.update_yaxes(range=[0,1],row=1,col=1)
+    fig_employment.update_yaxes(range=[0,0.2],row=2,col=1)
+    fig_employment.update_layout(title_text="Employment status (2 years after graduating)", showlegend=False)
 
     #student feedback
     filtered_sfeedback = student_feedback[student_feedback['tilastovuosi'].between(years[0], years[1])]
@@ -230,53 +298,22 @@ def update_year(years, universities):
             go.Bar(
                 x = filtered_sfeedback[filtered_sfeedback['metric'] == dim].Keskiarvo,
                 y = filtered_sfeedback[filtered_sfeedback['metric'] == dim].yliopisto,
+                name=dim,
                 orientation='h',
                 textposition='inside',
-                texttemplate='%{x:.2f}'
+                texttemplate='%{x:.2f}',
+                marker_color=colors,
+                hovertemplate=
+                "<b>%{y}</b><br><br>" +
+                "Average rating: %{x:.3f}<br>",
             ),
             row=1,
             col=i
         )
     fig_sfeedback.update_layout(title_text='Student feedback (after bachelor\'s degree)', showlegend=False, height = 120 + (50 * len(universities)))
+    fig_sfeedback.update_xaxes(range=[1,5])
     for i in fig_sfeedback['layout']['annotations']:
         i['font'] = dict(size=14, color='#000000')
-
-    #employment
-    filtered_employed = employment[employment['tilastovuosi'].between(years[0], years[1])]
-    filtered_employed = filtered_employed[filtered_employed.yliopisto.isin(universities)]
-    filtered_employed = filtered_employed.groupby(['yliopisto', 'Tila'], as_index=False).mean()
-    fig_employment = ps.make_subplots(rows=2, cols=1, shared_xaxes=True, shared_yaxes=False)
-    fig_employment.append_trace(
-        go.Bar(
-        x=filtered_employed[filtered_employed.Tila == 'Työllinen'].yliopisto,
-        y=filtered_employed[filtered_employed.Tila == 'Työllinen'].Keskiarvo,
-        name='Employed',
-        text = filtered_employed[filtered_employed['Tila'] == 'Työllinen'].Keskiarvo,
-        textposition='inside',
-        texttemplate='%{y:.1%}'
-        ), row=1, col=1
-    )
-    fig_employment.append_trace(
-        go.Bar(
-        x=filtered_employed[filtered_employed.Tila == 'Työtön'].yliopisto,
-        y=filtered_employed[filtered_employed.Tila == 'Työtön'].Keskiarvo,
-        name = 'Unemployed',
-        text = filtered_employed[filtered_employed['Tila'] == 'Työllinen'].Keskiarvo,
-        textposition='inside',
-        texttemplate='%{y:.1%}'
-        ), row=2, col=1
-    )
-    fig_employment.update_yaxes(tickformat='%')
-    fig_employment.update_yaxes(autorange='reversed', row=2,col=1)
-    fig_employment.update_layout(title_text="Employment status (2 years after graduating)")
-
-    #publications
-    filtered_publications = publications[publications['tilastovuosi'].between(years[0], years[1])]
-    filtered_publications = filtered_publications[filtered_publications.yliopisto.isin(universities)]
-    filtered_publications = filtered_publications.groupby(['yliopisto', 'JUFO-class'], as_index=False).sum()
-    fig_publications = px.bar(filtered_publications, x='yliopisto', y='lkm', color='JUFO-class', title='Publications')
-    fig_publications.update_xaxes(title='')
-    fig_publications.update_yaxes(title='')
 
     #Career feedback
     filtered_cfeedback = career_feedback[career_feedback['tilastovuosi'].between(years[0], years[1])]
@@ -290,15 +327,21 @@ def update_year(years, universities):
             go.Bar(
                 x = filtered_cfeedback[filtered_cfeedback['metric'] == dim].Keskiarvo,
                 y = filtered_cfeedback[filtered_cfeedback['metric'] == dim].yliopisto,
+                name=dim,
                 orientation='h',
                 text = filtered_cfeedback[filtered_cfeedback['metric'] == dim].Keskiarvo,
                 textposition='inside',
-                texttemplate='%{x:.2f}'
+                texttemplate='%{x:.2f}',
+                marker_color=colors,
+                hovertemplate=
+                "<b>%{y}</b><br><br>" +
+                "Average rating: %{x:.3f}<br>",
             ),
             row=1,
             col=i
         )
     fig_cfeedback.update_layout(title_text='Career feedback (2 years after graduating)', showlegend=False, height = 120 + (50 * len(universities)))
+    fig_cfeedback.update_xaxes(range=[1,5])
     for i in fig_cfeedback['layout']['annotations']:
         i['font'] = dict(size=12, color='#000000')
 
