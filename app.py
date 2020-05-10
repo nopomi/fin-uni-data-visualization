@@ -12,11 +12,12 @@ import flask
 import pandas as pd
 import numpy as np
 
+#set theme, stylesheet and initiate Dash app
 pio.templates.default = "plotly_white"
 external_stylesheet = ['https://cdn.rawgit.com/plotly/dash-app-stylesheets/2d266c578d2a6e8850ebce48fdb52759b2aef506/stylesheet-oil-and-gas.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheet)
 
-#Load and transform data
+#load and transform data
 degrees = pd.read_csv('data/degrees_data_2.csv')
 degrees = degrees.rename(columns={'Tutkintotyyppi':'Degree level'})
 degrees['Degree level'] = degrees['Degree level'].replace({
@@ -103,9 +104,12 @@ fig7 = ps.make_subplots(rows=1,cols=6)
 
 server = app.server
 
+#Dashboard layout
+
 top_markdown_text = '''
 ### Compare university funding metrics
 '''
+
 
 app.layout = html.Div([
     html.Div([
@@ -193,7 +197,7 @@ app.layout = html.Div([
         ],
 )
 
-#Year selector
+#Initating charts and handling interaction
 
 @app.callback(
     [Output('completed_degrees', 'figure'),
@@ -204,7 +208,8 @@ app.layout = html.Div([
     [Input('year-selection', 'value'),
     Input('university-selection', 'value')])
 def update_year(years, universities):
-    #fig1
+
+    #degrees
     filtered_degrees = degrees[degrees['tilastovuosi'].between(years[0], years[1])]
     filtered_degrees = filtered_degrees[filtered_degrees.yliopisto.isin(universities)]
     filtered_degrees = filtered_degrees.groupby(['yliopisto', 'Degree level'], as_index=False).sum()
@@ -212,7 +217,8 @@ def update_year(years, universities):
     fig_degrees = px.bar(filtered_degrees, x='yliopisto', y='lkm', color='Degree level', title='Completed degrees')
     fig_degrees.update_xaxes(title='')
     fig_degrees.update_yaxes(title='')
-    #fig2
+
+    #student feedback
     filtered_sfeedback = student_feedback[student_feedback['tilastovuosi'].between(years[0], years[1])]
     filtered_sfeedback = filtered_sfeedback[filtered_sfeedback.yliopisto.isin(universities)]
     filtered_sfeedback = filtered_sfeedback.groupby(['yliopisto','metric'], as_index=False).mean()
@@ -234,6 +240,8 @@ def update_year(years, universities):
     fig_sfeedback.update_layout(title_text='Student feedback (after bachelor\'s degree)', showlegend=False, height = 120 + (50 * len(universities)))
     for i in fig_sfeedback['layout']['annotations']:
         i['font'] = dict(size=14, color='#000000')
+
+    #employment
     filtered_employed = employment[employment['tilastovuosi'].between(years[0], years[1])]
     filtered_employed = filtered_employed[filtered_employed.yliopisto.isin(universities)]
     filtered_employed = filtered_employed.groupby(['yliopisto', 'Tila'], as_index=False).mean()
@@ -262,14 +270,15 @@ def update_year(years, universities):
     fig_employment.update_yaxes(autorange='reversed', row=2,col=1)
     fig_employment.update_layout(title_text="Employment status (2 years after graduating)")
 
-    #fig6
+    #publications
     filtered_publications = publications[publications['tilastovuosi'].between(years[0], years[1])]
     filtered_publications = filtered_publications[filtered_publications.yliopisto.isin(universities)]
     filtered_publications = filtered_publications.groupby(['yliopisto', 'JUFO-class'], as_index=False).sum()
     fig_publications = px.bar(filtered_publications, x='yliopisto', y='lkm', color='JUFO-class', title='Publications')
     fig_publications.update_xaxes(title='')
     fig_publications.update_yaxes(title='')
-    #fig7
+
+    #Career feedback
     filtered_cfeedback = career_feedback[career_feedback['tilastovuosi'].between(years[0], years[1])]
     filtered_cfeedback = filtered_cfeedback[filtered_cfeedback.yliopisto.isin(universities)]
     filtered_cfeedback = filtered_cfeedback.groupby(['yliopisto', 'metric'], as_index=False).mean()
@@ -292,6 +301,8 @@ def update_year(years, universities):
     fig_cfeedback.update_layout(title_text='Career feedback (2 years after graduating)', showlegend=False, height = 120 + (50 * len(universities)))
     for i in fig_cfeedback['layout']['annotations']:
         i['font'] = dict(size=12, color='#000000')
+
+
     return  fig_degrees, fig_sfeedback, fig_publications, fig_cfeedback, fig_employment
 
 
